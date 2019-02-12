@@ -12,3 +12,5 @@ population is an important step in determining what conditions are comfortable,
 it is more useful to consider whether or not people will be satisfied. 
 Fanger developed another equation to relate the PMV to the Predicted Percentage of Dissatisfied (PPD).
 ```
+
+So far there is only one test, in the testCalculateComfort file. 
