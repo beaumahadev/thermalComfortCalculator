@@ -1,6 +1,8 @@
 # thermalComfortCalculator
 
-So far there is a python function calculateComfort which uses Fanger's Predicted Mean Vote model for thermal comfort. 
+Calculates thermal comfort using ASHRAE standard PMV/PPD method. Uses GPS coordinates to estimate clothing index. Makes some other assumptions about metabolic rate. 
+
+function calculateComfort uses Fanger's Predicted Mean Vote model for thermal comfort. 
 From wikipedia:
 ```
 Fanger's equations are used to calculate the Predicted Mean Vote (PMV) of a large group of subjects 
@@ -13,4 +15,4 @@ it is more useful to consider whether or not people will be satisfied.
 Fanger developed another equation to relate the PMV to the Predicted Percentage of Dissatisfied (PPD).
 ```
 
-So far there is only one test, in the testCalculateComfort file. 
+Results tested against UC Berkely's CBE Thermal Comfort Calculator: http://comfort.cbe.berkeley.edu/
