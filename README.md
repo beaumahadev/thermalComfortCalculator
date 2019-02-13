@@ -1,4 +1,4 @@
-# thermalComfortCalculator
+# Thermal Comfort Calculator
 
 Calculates thermal comfort and provides an estimation of the percentage of people dissatisfied using ASHRAE standard PMV/PPD method. Calculation uses indoor temperature and humidity, and uses GPS coordinates to estimate the clothing index based on local weather. Makes assumptions about metabolic rate, external work, and radiant temp. 
 
