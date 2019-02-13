@@ -16,3 +16,9 @@ Fanger developed another equation to relate the PMV to the Predicted Percentage 
 ```
 
 Results tested against UC Berkely's CBE Thermal Comfort Calculator: http://comfort.cbe.berkeley.edu/
+
+
+to run: 
+`
+python testThermalComfort.py
+`
