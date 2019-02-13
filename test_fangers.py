@@ -9,17 +9,17 @@ input_test_4=[24,80,1.8,.2]
 input_test_5=[20,40,1.1,.5]
 
 
-test_inputs=[input_test_1]
+test_inputs=[input_test_1,input_test_2,input_test_3,input_test_4,input_test_5]
 
 
 #Answers taken from CBE Thermal Comfort Calculator: http://comfort.cbe.berkeley.edu/
 test_1_answers=[.62,13]
 test_2_answers=[.81,19]
-test_3_answers=[-.19,6]
+test_3_answers=[.48,10]
 test_4_answers=[.37,8]
 test_5_answers=[-1.87,71]
 
-test_answers=[test_1_answers]
+test_answers=[test_1_answers,test_2_answers,test_3_answers,test_4_answers,test_5_answers]
 
 
 def test_fangers(input_array, answer_array):
@@ -33,5 +33,5 @@ def test_fangers(input_array, answer_array):
 if __name__ == "__main__":
     for i in range(0,len(test_inputs)):
         test_fangers(test_inputs[i],test_answers[i])
-    
-    print("All tests passed")
+    print("All Tests Passed")
+
