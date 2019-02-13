@@ -20,5 +20,5 @@ Results tested against UC Berkely's CBE Thermal Comfort Calculator: http://comfo
 
 to run: 
 `
-python testThermalComfort.py
+python test_thermalcomfort.py
 `
