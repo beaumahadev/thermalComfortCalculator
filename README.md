@@ -22,3 +22,7 @@ to run:
 `
 python test_thermalcomfort.py
 `
+dependencies: pyowm 
+`
+pip install pyowm
+`
