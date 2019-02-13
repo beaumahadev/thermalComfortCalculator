@@ -51,5 +51,3 @@ def calculate_clothindex(temp):
         return .5
     else:
         return index
-
-

@@ -85,7 +85,18 @@ def calculate(ta, rh, met, clo):
     pmv = ts * (mw - hl1 - hl2 - hl3 - hl4 - hl5 - hl6)
     ppd = 100.0 - 95.0 * math.exp(-0.03353 * pow(pmv, 4.0) - 0.2179 * pow(pmv, 2.0))
 
-    r = {"pmv":pmv,"ppd":ppd}
+    if pmv > -.2 and pmv < .2:
+        comfort="neutral"
+    elif pmv > .2 and pmv < .5:
+        comfort="warm"
+    elif pmv < -.2 and pmv > -.5:
+        comfort="cool"
+    elif pmv > .5:
+        comfort="hot"
+    elif pmv < -.5:
+        comfort="cold"
+
+    r = {"pmv":pmv,"ppd":ppd,"comfort":comfort}
     return(r)
 
 
