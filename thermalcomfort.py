@@ -2,32 +2,6 @@ import pyowm
 import math
 import fangers
 
-def getThermalComfort(indoor_temp, indoor_humidity, outdoorTemp, outdoorHumidity, outdoorWindSpeed):
-
-    # #Personal OpenWeatherMap API Key
-    # owm = pyowm.OWM('7c759896dc1e8fdb39b532eeaa14641e')
-
-    # # Get weather at coordinates- temp, humidity, windspeed
-    # observation = owm.weather_at_coords(coordinateX, coordinateY)
-    # w = observation.get_weather()
-    # outdoorTemp=w.get_temperature()['temp']-273.15
-    # outdoorHumidity=w.get_humidity()
-    # outdoorWindSpeed=w.get_wind()['speed']
-
-    #Calculate the felt temperature
-    real_temp=calculate_realfeel(outdoorTemp,outdoorHumidity, outdoorWindSpeed)
-
-    #Get clothing index
-    clothing_index= calculate_clothindex(real_temp) 
-
-    #Estimate metobolic rate
-    #Seated: 1.1
-    #Cooking: 1.8
-    metobolic_rate=1.1
-
-    #Calculate thermal comfort using Fanger's method
-    return fangers.calculate(indoor_temp, indoor_humidity, metobolic_rate,clothing_index)
-
 
 def calculate_realfeel(temp,humidity,wind):
     #tested against Australian Bureau of Meteorology formula
@@ -51,3 +25,16 @@ def calculate_clothindex(temp):
         return .5
     else:
         return index
+
+def get_temperature(coordinateX, coordinateY):
+    #Personal OpenWeatherMap API Key
+    owm = pyowm.OWM('7c759896dc1e8fdb39b532eeaa14641e')
+
+    # Get weather at coordinates- temp, humidity, windspeed
+    observation = owm.weather_at_coords(coordinateX, coordinateY)
+    w = observation.get_weather()
+    outdoorTemp=w.get_temperature()['temp']-273.15
+    outdoorHumidity=w.get_humidity()
+    outdoorWindSpeed=w.get_wind()['speed']
+    return [outdoorTemp,outdoorHumidity,outdoorWindSpeed]
+
