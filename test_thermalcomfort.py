@@ -1,14 +1,20 @@
 import thermalcomfort
+import fangers
 
-coordinateX= 22.428005
-coordinateY= 114.210902
-indoorTemp= 22
-indoorHumidity= 60
+outdoorTemp= float(input("Out door temperature? "))
+outdoorHumidity= float(input("Out door humidity? "))
+outdoorWindSpeed= float(input("Wind speed? "))
 
-answer= thermalcomfort.getThermalComfort(indoorTemp,indoorHumidity,coordinateX,coordinateY)
+real_feel=thermalcomfort.calculate_realfeel(outdoorTemp,outdoorHumidity,outdoorWindSpeed)
+clothing_index=thermalcomfort.calculate_clothindex(real_feel)
 
+print("The real feel temperature is: " + str(real_feel))
+print("Your estimated clothing index is: "+ str(clothing_index))
 
-print("For location: (" + str(coordinateX) + "),(" + str(coordinateY) + ")")
-print("With indoor temperature: " + str(indoorTemp))
-print("With indoor humidity: " + str(indoorHumidity))
+indoorTemp=float(input("Indoor temp? "))
+indoorHumidity=float(input("Indoor humidity? "))
+metabolic_rate=float(input("Metabolic rate? "))
+
+answer= fangers.calculate(indoorTemp,indoorHumidity,metabolic_rate,clothing_index)
+
 print("Thermal comfort score is: "+ str(round(answer['pmv'],2)) + ", the percent of people dissatisfied is "+ str(round(answer['ppd'])) + ", people are " + answer['comfort'])

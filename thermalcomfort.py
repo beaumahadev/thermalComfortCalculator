@@ -2,17 +2,17 @@ import pyowm
 import math
 import fangers
 
-def getThermalComfort(indoor_temp, indoor_humidity, coordinateX, coordinateY):
+def getThermalComfort(indoor_temp, indoor_humidity, outdoorTemp, outdoorHumidity, outdoorWindSpeed):
 
-    #Personal OpenWeatherMap API Key
-    owm = pyowm.OWM('7c759896dc1e8fdb39b532eeaa14641e')
+    # #Personal OpenWeatherMap API Key
+    # owm = pyowm.OWM('7c759896dc1e8fdb39b532eeaa14641e')
 
-    # Get weather at coordinates- temp, humidity, windspeed
-    observation = owm.weather_at_coords(coordinateX, coordinateY)
-    w = observation.get_weather()
-    outdoorTemp=w.get_temperature()['temp']-273.15
-    outdoorHumidity=w.get_humidity()
-    outdoorWindSpeed=w.get_wind()['speed']
+    # # Get weather at coordinates- temp, humidity, windspeed
+    # observation = owm.weather_at_coords(coordinateX, coordinateY)
+    # w = observation.get_weather()
+    # outdoorTemp=w.get_temperature()['temp']-273.15
+    # outdoorHumidity=w.get_humidity()
+    # outdoorWindSpeed=w.get_wind()['speed']
 
     #Calculate the felt temperature
     real_temp=calculate_realfeel(outdoorTemp,outdoorHumidity, outdoorWindSpeed)
